@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="description"
+content="Support Cleansing Impurities through donations that fund tree planting, community cleanups, environmental education, and water conservation projects.">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,13 +21,6 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
@@ -34,9 +29,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <header class="navbar">
 
-    <div class="logo">
-        🌿 Cleansing <span>Impurities</span>
-    </div>
+    <a href="index.html" class="logo">
+    <i class="fa-solid fa-leaf"></i>
+    Cleansing <span>Impurities</span>
+</a>
 
     <nav class="nav-links">
 
@@ -46,18 +42,21 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
         <a href="programs.html">Programs</a>
 
-        <a href="groupchat.html">community</a>
+        <a href="groupchat.html">Community</a>
 
-        <a href="report.html" class="active">Report</a>
+        <a href="report.html">Report</a>
 
-        <a href="donation.html">Donate</a>
+        <a href="donation.html" class="active">Donate</a>
 
         <a href="impact.html">Impact</a>
 
         <a href="profile.html">Profile</a>
 
     </nav>
-    <button id="theme-toggle" class="theme-btn">
+   <button
+id="theme-toggle"
+class="theme-btn"
+aria-label="Toggle dark mode">
     <i class="fa-solid fa-moon"></i>
 </button>
 </header>
@@ -80,20 +79,18 @@ Every donation helps us create a cleaner and greener future.
 
 <div class="donation-options">
 
-<button>$5</button>
-
-<button>$10</button>
-
-<button>$25</button>
-
-<button>$50</button>
-
+<button class="amount-btn">Php 50</button>
+<button class="amount-btn">Php 100</button>
+<button class="amount-btn">Php 500</button>
+<button class="amount-btn">Php 1000</button>
 </div>
 
+<label for="donationAmount">Custom Donation Amount</label>
+
 <input
+id="donationAmount"
 type="number"
 placeholder="Enter Custom Amount">
-
 <button class="btn donate-btn">
 Donate Now
 </button>
@@ -105,19 +102,19 @@ Donate Now
 <h2>Your Donation Helps</h2>
 
 <div class="help-item">
-🌳 Tree Planting Projects
+<i class="fa-solid fa-tree"></i> Tree Planting Projects
 </div>
 
 <div class="help-item">
-♻ Community Cleanup Drives
+<i class="fa-solid fa-recycle"></i> Community Cleanup Drives
 </div>
 
 <div class="help-item">
-📚 Environmental Education
+<i class="fa-solid fa-book"></i> Environmental Education
 </div>
 
 <div class="help-item">
-💧 Water Conservation
+<i class="fa-solid fa-droplet"></i> Water Conservation
 </div>
 
 </div>
@@ -135,6 +132,18 @@ Donate Now
 <button id="topBtn">
     ↑
 </button>
+
+<script src="js/main.js"></script>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+    duration:900,
+    once:true,
+    offset:100
+});
+</script>
 
 </body>
 </html>

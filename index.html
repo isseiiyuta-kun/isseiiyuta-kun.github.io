@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="description"
+content="Cleansing Impurities is an environmental awareness platform promoting clean communities, sustainability, and volunteer programs.">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cleansing Impurities</title>
+<title>Cleansing Impurities | Environmental Awareness Platform</title>
+
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/navbar.css">
 <link rel="stylesheet" href="css/hero.css">
@@ -22,15 +25,6 @@
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-<script>
-AOS.init({
-    duration: 900,
-    once: true,
-    offset: 100
-});
-</script>
 
 </head>
 
@@ -40,21 +34,22 @@ AOS.init({
 
 <header class="navbar">
 
-    <div class="logo">
-        🌿 Cleansing <span>Impurities</span>
-    </div>
+    <a href="index.html" class="logo">
+        <i class="fa-solid fa-leaf"></i>
+Cleansing <span>Impurities</span>
+    </a>
 
      <nav class="nav-links">
 
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
 
         <a href="learn.html">Learn</a>
 
         <a href="programs.html">Programs</a>
 
-        <a href="groupchat.html">community</a>
+        <a href="groupchat.html">Community</a>
 
-        <a href="report.html" class="active">Report</a>
+        <a href="report.html">Report</a>
 
         <a href="donation.html">Donate</a>
 
@@ -70,7 +65,7 @@ AOS.init({
 
 <!-- ================= HERO ================= -->
 
-<section class="page-hero" data-aos="fade-up">
+<section class="hero" data-aos="fade-up">
 
     <div class="hero-content">
 
@@ -84,8 +79,10 @@ AOS.init({
 
         <div class="search-box">
 
-            <input type="text"
-            placeholder="Search articles, programs...">
+            <input
+type="search"
+placeholder="Search articles or programs..."
+aria-label="Search">
 
             <button>
                 <i class="fas fa-search"></i>
@@ -118,11 +115,11 @@ AOS.init({
 
 <!-- ================= QUICK STATS ================= -->
 
-<section class="featured" data-aos="fade-right">
+<section class="stats" data-aos="zoom-in">
 
     <div class="stat-card">
 
-        <div class="stat-icon">🌳</div>
+        <div class="stat-icon"><i class="fa-solid fa-tree stat-icon"></i></div>
 
         <h2 class="counter" data-target="12540">0</h2>
 
@@ -132,7 +129,7 @@ AOS.init({
 
     <div class="stat-card">
 
-        <div class="stat-icon">👥</div>
+        <div class="stat-icon"><i class="fa-solid fa-users stat-icon"></i></div>
 
         <h2 class="counter" data-target="2134">0</h2>
 
@@ -142,7 +139,7 @@ AOS.init({
 
     <div class="stat-card">
 
-        <div class="stat-icon">♻️</div>
+        <div class="stat-icon"><i class="fa-solid fa-recycle stat-icon"></i></div>
 
         <h2 class="counter" data-target="35">0</h2>
 
@@ -152,7 +149,7 @@ AOS.init({
 
     <div class="stat-card">
 
-        <div class="stat-icon">🚨</div>
+        <div class="stat-icon"><i class="fa-solid fa-triangle-exclamation stat-icon"></i></div>
 
         <h2 class="counter" data-target="483">0</h2>
 
@@ -174,14 +171,17 @@ AOS.init({
     <div class="program-grid">
 
         <div class="program-card">
-            <img src="assets/images/treeplanting.jpg" alt="Tree Planting">
+            <img
+src="assets/images/treeplanting.jpg"
+alt="Tree Planting"
+loading="lazy">
 
             <div class="program-content">
                 <h3>Tree Planting Drive</h3>
 
-                <p>📍 Burnham Park</p>
+                <p><i class="fa-solid fa-location-dot"></i> Burnham Park</p>
 
-                <p>📅 August 15, 2026</p>
+                <i class="fa-solid fa-calendar-days"></i>
 
                 <a href="programs.html" class="btn">Join Program</a>
             </div>
@@ -227,15 +227,19 @@ AOS.init({
 </section>
 
 
-/* ================= FEATURED ARTICLES ================= */
-<section class="featured"></section>
+<!-- ================= FEATURED ARTICLES ================= -->
+
+<section class="featured" data-aos="zoom in">
     <h2>Featured Environmental Articles</h2>
 
     <div class="featured-grid">
 
         <div class="featured-card">
 
-            <img src="https://images.unsplash.com/photo-1492496913980-501348b61469?w=600" alt="Trees">
+            <img
+src="assets/images/treeplanting.jpg"
+alt="Tree Planting"
+loading="lazy">
 
             <div class="featured-content">
 
@@ -251,7 +255,10 @@ AOS.init({
 
         <div class="featured-card">
 
-            <img src="https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef?w=600" alt="Ocean">
+            <img
+src="assets/images/treeplanting.jpg"
+alt="Tree Planting"
+loading="lazy">
 
             <div class="featured-content">
 
@@ -285,6 +292,16 @@ AOS.init({
 <button id="topBtn">
     ↑
 </button>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+    duration: 900,
+    once: true,
+    offset: 100
+});
+</script>
 
 </body>
 </html>
