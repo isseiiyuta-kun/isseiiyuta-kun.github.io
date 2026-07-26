@@ -1,0 +1,145 @@
+/* ==========================
+   MODERN NAVIGATION
+========================== */
+
+.navbar{
+
+    position:sticky;
+
+    top:15px;
+
+    width:92%;
+
+    margin:auto;
+
+    padding:18px 35px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:18px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    z-index:999;
+
+}
+
+.logo{
+
+    font-size:26px;
+
+    font-weight:700;
+
+    color:#2e7d32;
+
+}
+
+.logo span{
+
+    color:#1b5e20;
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:28px;
+
+}
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:#333;
+
+    font-weight:500;
+
+    transition:.3s;
+
+    position:relative;
+
+}
+
+.nav-links a:hover{
+
+    color:#2e7d32;
+
+}
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:3px;
+
+    background:#2e7d32;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover::after{
+
+    width:100%;
+
+}
+
+.nav-links a.active{
+
+    color:#2e7d32;
+
+}
+
+.nav-links a.active::after{
+
+    width:100%;
+
+}
+
+/* ================= DARK MODE BUTTON ================= */
+
+.theme-btn{
+
+    background:#2e7d32;
+
+    color:white;
+
+    border:none;
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.theme-btn:hover{
+
+    transform:rotate(20deg) scale(1.08);
+
+}
