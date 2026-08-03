@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample Musics</title>      >
+  <style>
+    :root {
+      --spidey-red: #E0202D;
+      --spidey-blue: #0B1E3D;
+      --web-white: #F1EEE2;
+      --ink: #0A0A0A;
+      --accent-yellow: #F3B62B;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        linear-gradient(135deg, rgba(11, 30, 61, 0.78), rgba(243, 182, 43, 0.60)),
+        url('music_background.jpg') center / cover no-repeat;
+      color: var(--web-white);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+    body::before,
+    body::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    body::before {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.25), transparent 20%),
+        radial-gradient(circle at 80% 15%, rgba(243,182,43,0.24), transparent 18%),
+        radial-gradient(circle at 50% 80%, rgba(255,255,255,0.16), transparent 24%),
+        linear-gradient(120deg, rgba(255,255,255,0.08), transparent 45%, rgba(255,255,255,0.05));
+      mix-blend-mode: screen;
+      animation: drift 12s ease-in-out infinite alternate;
+    }
+    body::after {
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1.2px),
+        radial-gradient(circle, rgba(243,182,43,0.6) 1px, transparent 1.2px);
+      background-size: 30px 30px, 44px 44px;
+      background-position: 0 0, 10px 18px;
+      opacity: 0.25;
+      animation: shimmer 8s linear infinite;
+    }
+    .card {
+      width: min(780px, 100%);
+      max-height: 92vh;
+      background: linear-gradient(145deg, rgba(255,255,255,0.16), rgba(255,255,255,0.08));
+      border: 3px solid var(--ink);
+      border-radius: 24px;
+      padding: 28px 24px 24px;
+      box-shadow: 12px 12px 0 rgba(0,0,0,0.38), inset 0 0 0 1px rgba(255,255,255,0.16);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+      overflow: auto;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 1px dashed rgba(255,255,255,0.22);
+      border-radius: 18px;
+      pointer-events: none;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 2.4vw, 2.3rem);
+      color: var(--accent-yellow);
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.24);
+    }
+    p { line-height: 1.7; margin: 0 0 12px; }
+    .section-box {
+      margin-top: 16px;
+      padding: 14px;
+      border: 2px solid rgba(10,10,10,0.2);
+      border-radius: 18px;
+      background: rgba(241,238,226,0.08);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent-yellow);
+      margin: 0 0 10px;
+    }
+    .audio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .audio-card {
+      border: 2px solid rgba(10,10,10,0.18);
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 10px 18px rgba(0,0,0,0.16);
+      padding: 8px;
+    }
+    .audio-card audio {
+      display: block;
+      width: 100%;
+      height: 42px;
+      border-radius: 8px;
+    }
+    .audio-label {
+      display: block;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--ink);
+      font-weight: 700;
+      padding: 6px 4px 2px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 10px 16px;
+      background: var(--accent-yellow);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 999px;
+      box-shadow: 0 10px 20px rgba(243,182,43,0.18);
+    }
+    @keyframes drift {
+      0% { transform: translate3d(0,0,0) scale(1); }
+      100% { transform: translate3d(-2%, 2%, 0) scale(1.04); }
+    }
+    @keyframes shimmer {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(24px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Sample Musics</h1>
+    <p>These are a few tracks to set the mood and bring a little extra color to the page.</p>
+
+    <div class="section-box">
+      <div class="section-title">Music Playlist</div>
+      <div class="audio-grid">
+        <div class="audio-card">
+          <audio controls preload="metadata">
+            <source src="music1.mp3" type="audio/mpeg">
+          </audio>
+          <span class="audio-label">Track 1</span>
+        </div>
+        <div class="audio-card">
+          <audio controls preload="metadata">
+            <source src="music2.mp3" type="audio/mpeg">
+          </audio>
+          <span class="audio-label">Track 2</span>
+        </div>
+        <div class="audio-card">
+          <audio controls preload="metadata">
+            <source src="music3.mp3" type="audio/mpeg">
+          </audio>
+          <span class="audio-label">Track 3</span>
+        </div>
+        <div class="audio-card">
+          <audio controls preload="metadata">
+            <source src="music4.mp3" type="audio/mpeg">
+          </audio>
+          <span class="audio-label">Track 4</span>
+        </div>
+      </div>
+    </div>
+
+    <a class="btn" href="./index.html#hobbies" target="_self" rel="noopener">Back to Hobbies</a>
+  </div>
+</body>
+</html>
