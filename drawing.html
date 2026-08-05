@@ -45,29 +45,67 @@
     body::before {
       background:
         radial-gradient(circle at 24% 14%, rgba(255,255,255,0.20), transparent 16%),
-        radial-gradient(circle at 70% 12%, rgba(255,255,255,0.08), transparent 18%);
+        radial-gradient(circle at 70% 12%, rgba(255,255,255,0.08), transparent 18%),
+        radial-gradient(circle at 40% 70%, rgba(243,182,43,0.12), transparent 30%),
+        radial-gradient(circle at 85% 65%, rgba(224,32,45,0.10), transparent 28%);
       mix-blend-mode: screen;
-      animation: drift 16s ease-in-out infinite alternate;
+      animation: drift 18s ease-in-out infinite alternate;
     }
     body::after {
       background-image:
+        radial-gradient(circle at 18% 85%, rgba(243,182,43,0.08), transparent 14%),
+        radial-gradient(circle at 66% 20%, rgba(255,255,255,0.10), transparent 16%),
         repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 32px),
-        repeating-linear-gradient(0deg, rgba(0,0,0,0.08) 0 1px, transparent 1px 22px);
-      opacity: 0.24;
-      animation: scan 9s linear infinite;
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 24px);
+      opacity: 0.34;
+      animation: scan 10s linear infinite;
     }
+    .drawing-effects {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .drawing-effects span {
+      position: absolute;
+      display: block;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0.9;
+      filter: blur(0.4px);
+    }
+    .drawing-effects .glow-dot {
+      width: 18px;
+      height: 18px;
+      background: radial-gradient(circle, rgba(243,182,43,0.85), rgba(243,182,43,0.0) 60%);
+      animation: float 8s ease-in-out infinite alternate;
+    }
+    .drawing-effects .glow-dot:nth-child(1) { top: 12%; left: 16%; animation-delay: 0s; }
+    .drawing-effects .glow-dot:nth-child(2) { top: 28%; left: 78%; width: 24px; height: 24px; animation-delay: 2s; }
+    .drawing-effects .glow-dot:nth-child(3) { top: 70%; left: 24%; width: 20px; height: 20px; animation-delay: 4s; }
+    .drawing-effects .glow-dot:nth-child(4) { top: 54%; left: 82%; width: 16px; height: 16px; animation-delay: 1.5s; }
+    .drawing-effects .glow-dot:nth-child(5) { top: 85%; left: 48%; width: 22px; height: 22px; animation-delay: 3.2s; }
+    .drawing-effects .line-shape {
+      width: 160px;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.55), rgba(255,255,255,0));
+      border-radius: 999px;
+      animation: slide 12s linear infinite;
+    }
+    .drawing-effects .line-shape:nth-child(6) { top: 22%; left: 60%; animation-delay: -3s; transform: rotate(24deg); opacity: 0.6; }
+    .drawing-effects .line-shape:nth-child(7) { top: 78%; left: 18%; animation-delay: -6s; transform: rotate(-18deg); opacity: 0.5; }
     .card {
       width: min(980px, 100%);
       margin: 0 auto;
       background: rgba(255,255,255,0.18);
-      border: 1px solid rgba(255,255,255,0.45);
+      border: 3px solid rgba(243,182,43,0.55);
       border-radius: 28px;
       padding: 34px;
-      box-shadow: 0 28px 72px rgba(0,0,0,0.28);
+      box-shadow: 0 28px 72px rgba(0,0,0,0.28), 0 0 0 4px rgba(255,255,255,0.08), inset 0 0 0 1px rgba(255,255,255,0.18);
       backdrop-filter: blur(18px);
       position: relative;
       z-index: 1;
-      overflow: hidden;
+      overflow: visible;
     }
     .card::before {
       content: "";
@@ -79,6 +117,15 @@
       background: radial-gradient(circle, rgba(243,182,43,0.32), transparent 55%);
       filter: blur(20px);
       pointer-events: none;
+    }
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: -8px;
+      border-radius: 34px;
+      border: 2px dashed rgba(255,255,255,0.32);
+      pointer-events: none;
+      opacity: 0.9;
     }
     h1 {
       margin: 0 0 16px;
@@ -113,34 +160,42 @@
     .gallery-item {
       position: relative;
       padding: 12px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(241,238,226,0.88));
-      border: 1px solid rgba(10,10,10,0.18);
-      border-radius: 24px;
-      box-shadow: 0 24px 40px rgba(0,0,0,0.14);
+      background: linear-gradient(180deg, rgba(18, 14, 34, 0.92), rgba(32, 22, 52, 0.98));
+      border-radius: 28px;
+      background-clip: padding-box;
+      box-shadow: 0 32px 56px rgba(0, 0, 0, 0.32), inset 0 0 0 1px rgba(224, 32, 45, 0.12);
       transform: translateY(0);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
       overflow: hidden;
     }
     .gallery-item:hover {
       transform: translateY(-6px) rotate(0deg);
-      box-shadow: 0 32px 50px rgba(0,0,0,0.2);
+      box-shadow: 0 36px 60px rgba(0, 0, 0, 0.34), inset 0 0 0 1px rgba(243, 182, 43, 0.22);
+      filter: saturate(1.08);
     }
     .gallery-item:nth-child(odd) {
-      transform: rotate(-1deg);
+      transform: rotate(-0.7deg);
     }
     .gallery-item:nth-child(even) {
-      transform: rotate(1deg);
+      transform: rotate(0.7deg);
     }
     .gallery-item::before {
       content: "";
       position: absolute;
-      top: 10px;
-      left: 10px;
-      width: calc(100% - 20px);
-      height: calc(100% - 20px);
-      border: 1px dashed rgba(10,10,10,0.12);
-      border-radius: 20px;
+      inset: 8px;
+      border-radius: 22px;
+      border: 1px solid rgba(243, 182, 43, 0.2);
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(243,182,43,0.05));
       pointer-events: none;
+    }
+    .gallery-item::after {
+      content: "";
+      position: absolute;
+      inset: 6px;
+      border: 1px dashed rgba(243, 182, 43, 0.24);
+      border-radius: 22px;
+      pointer-events: none;
+      mix-blend-mode: screen;
     }
     .gallery-item::after {
       content: "";
@@ -159,7 +214,8 @@
       height: 180px;
       object-fit: cover;
       border-radius: 18px;
-      border: 2px solid rgba(10,10,10,0.12);
+      border: 2px solid rgba(243,182,43,0.42);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
       cursor: pointer;
       transition: transform 0.25s ease, filter 0.25s ease;
     }
@@ -233,9 +289,46 @@
       0%, 100% { transform: translateY(0) rotate(-2deg); }
       50% { transform: translateY(-6px) rotate(1deg); }
     }
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 0.9; }
+      100% { transform: translateY(-12px) scale(1.08); opacity: 0.5; }
+    }
+    @keyframes slide {
+      0% { transform: translateX(0) rotate(0deg); }
+      100% { transform: translateX(-80px) rotate(0deg); }
+    }
+    body, a, button, .choice-button {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23E0202D' stroke='%230A0A0A' stroke-width='2'/%3E%3Cpath d='M16 2 L16 30 M2 16 L30 16 M6 6 L26 26 M6 26 L26 6' stroke='%230A0A0A' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") 16 16, auto;
+    }
+    .spider-trail {
+      position: fixed;
+      pointer-events: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(224,32,45,0.92) 40%, rgba(224,32,45,0.1) 60%, transparent 100%);
+      box-shadow: 0 0 18px rgba(224,32,45,0.32), inset 0 0 8px rgba(255,255,255,0.45);
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.7);
+      animation: spiderTrailFade 0.8s forwards;
+      z-index: 9999;
+    }
+    @keyframes spiderTrailFade {
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(0.4); }
+    }
   </style>
 </head>
 <body>
+  <div class="drawing-effects">
+    <span class="glow-dot"></span>
+    <span class="glow-dot"></span>
+    <span class="glow-dot"></span>
+    <span class="glow-dot"></span>
+    <span class="glow-dot"></span>
+    <span class="line-shape"></span>
+    <span class="line-shape"></span>
+  </div>
   <div class="card">
     <h1>Drawing Samples</h1>
     <div class="gallery">
@@ -250,7 +343,7 @@
       <div class="gallery-item"><img src="imgae9.jpg" alt="Drawing artwork 9"></div>
       <div class="gallery-item"><img src="imgae10.jpg" alt="Drawing artwork 10"></div>
     </div>
-    <a class="btn" href="./index.html#hobbies" target="_self" rel="noopener">Back to Hobbies</a>
+    <a class="btn" href="index.html#hobbies">Back to Hobbies</a>
   </div>
 
   <div class="lightbox" id="lightbox">
@@ -282,6 +375,19 @@
     });
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+    });
+
+    let lastTrailTime = 0;
+    document.addEventListener('mousemove', (e) => {
+      const now = performance.now();
+      if (now - lastTrailTime < 20) return;
+      lastTrailTime = now;
+      const trail = document.createElement('span');
+      trail.className = 'spider-trail';
+      trail.style.left = `${e.clientX}px`;
+      trail.style.top = `${e.clientY}px`;
+      document.body.appendChild(trail);
+      setTimeout(() => trail.remove(), 820);
     });
   </script>
 </body>
